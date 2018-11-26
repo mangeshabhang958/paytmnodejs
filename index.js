@@ -15,10 +15,9 @@ app.post('/api/getchecksum',(req,response) =>{
     params['CALLBACK_URL']		= 'http://localhost:'+port+'/callback';
     params['EMAIL']				= req.body.email;
     params['MOBILE_NO']			= req.body.mobilen;
-
     var mkey = req.body.mkey;
+    console.log(params);
     checksum.genchecksum(params,mkey, function (err, res) {
-    console.log('sddfhyrtty');
      if(!err){
             return response.json(res)
        }
