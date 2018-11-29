@@ -3,25 +3,23 @@ var express = require('express');
 var app  = new express();
 app.use(express.json());
 app.post('/api/getchecksum',(req,response) =>{
-    console.log('called from  postman'+ req.body.mid);
     var params 						= {};
-    params['MID'] 					= req.body.mid;
-    params['ORDER_ID']			= req.body.orderID;
-    params['CUST_ID'] 			= req.body.custID;
-    params['INDUSTRY_TYPE_ID']	= req.body.industryID;
-    params['CHANNEL_ID']			= req.body.channelId;
-    params['TXN_AMOUNT']		= req.body.taxamount;
-    params['WEBSITE']				= req.body.website;
-    params['CALLBACK_URL']		= req.body.callbackurl;
-    var mkey = req.body.mkey;
-    console.log(params);
+    params['MID'] 					= 'ErRnVK16888702152308';
+    params['WEBSITE']				= 'WEBSTAGING';
+    params['CHANNEL_ID']			= 'WEB';
+    params['INDUSTRY_TYPE_ID']	= 'Retail';
+    params['ORDER_ID']			= 'abc495060709';
+    params['CUST_ID'] 			= 'Customer001';
+    params['TXN_AMOUNT']		= '100.00';
+    params['CALLBACK_URL']		= 'https://funny-dev-ed--c.ap5.visual.force.com/apex/paytmrequestpage';
+    params['EMAIL']				= 'abc@mailinator.com';
+    params['MOBILE_NO']			= '7777777777';
+    var mkey = '@bAfJ2kINKpKZPmY';
     checksum.genchecksum(params,mkey, function (err, res) {
      if(!err){
             return response.json(res)
        }
     });
-
-
 });
 const port = process.env.PORT || 3000;
 app.listen(port  , () => console.log(`listeing to po ${port}`));
