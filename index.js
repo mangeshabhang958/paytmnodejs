@@ -6,15 +6,13 @@ app.post('/api/getchecksum',(req,response) =>{
     console.log('called from  postman'+ req.body.mid);
     var params 						= {};
     params['MID'] 					= req.body.mid;
-    params['WEBSITE']				= req.body.website;
-    params['CHANNEL_ID']			= req.body.channelId;
-    params['INDUSTRY_TYPE_ID']	= req.body.industryID;
     params['ORDER_ID']			= req.body.orderID;
     params['CUST_ID'] 			= req.body.custID;
+    params['INDUSTRY_TYPE_ID']	= req.body.industryID;
+    params['CHANNEL_ID']			= req.body.channelId;
     params['TXN_AMOUNT']		= req.body.taxamount;
+    params['WEBSITE']				= req.body.website;
     params['CALLBACK_URL']		= req.body.callbackurl;
-    params['EMAIL']				= req.body.email;
-    params['MOBILE_NO']			= req.body.mobilen;
     var mkey = req.body.mkey;
     console.log(params);
     checksum.genchecksum(params,mkey, function (err, res) {
